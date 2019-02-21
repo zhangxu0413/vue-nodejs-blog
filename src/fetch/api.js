@@ -6,7 +6,7 @@ import router from '../router/'
 axios.defaults.timeout = 10000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8;multipart/form-data;boundary=----WebKitFormBoundaryeOOd9EoQVo6B4Tgb';
 //    /api这个位置在config/index.js里面设置了代理，指向 localhost:8088/api这个后台地址
-axios.defaults.baseURL = 'http://localhost:8088/api';
+axios.defaults.baseURL = process.env.API_ROOT//'http://localhost:8088/api';
 
 // http request 拦截器
 axios.interceptors.request.use(
