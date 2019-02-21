@@ -6,7 +6,7 @@ let pool=mysql.createPool({
     host:'localhost',
     user:'root',
     password:'',
-    database:'alphabet',
+    database:'shuyuxuan_blog',
     port:3306,
     connectionLimit:50,//允许连接数
     multipleStatements : true,  //是否允许执行多条sql语句

@@ -1,6 +1,6 @@
 # vue-nodejs-blog
 
-Alphabet的个人博客项目  Ver0.0
+shuyuxuan的个人博客项目  Ver0.0
 
 在线预览地址:http://hyj.60late.com
 

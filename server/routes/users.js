@@ -54,7 +54,7 @@ router.post('/changeInfo',upload, (req, res)=> {
     //如果有图片，那么就获取图片
     if(req.file){
       //拼接文件上传后的路径，由于之前用了express.static，所以这里不用写public，直接写/img/
-      url ='http://localhost:8081/img/user/'+req.file.filename;
+      url ='http://localhost:8088/img/user/'+req.file.filename;
     }
 
     let sql=db.changeInfo(id,params,url);

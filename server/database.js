@@ -7,10 +7,10 @@ let db = mysql.createConnection({
 })
 
 // 创建数据库 
-let createDb=`create database if not exists alphabet character set utf8 collate utf8_general_ci`;
+let createDb=`create database if not exists shuyuxuan_blog character set utf8 collate utf8_general_ci`;
 
 //使用数据库
-let useDb=`use alphabet`;
+let useDb=`use shuyuxuan_blog`;
 
 //创建文章表
 let createArticle=`create table if not exists article(
@@ -53,7 +53,7 @@ let createUser=`create table if not exists user(
     breif text not null comment '用户个人简介'
 )charset=utf8 engine=myisam;`;
 
-let insertUser=`insert into user (account,password,name,signature,breif) values ('admin','812bf295db843ad39280f48332f3a416','alphabet','Against the current','有志不在年高 无志空长百岁');`;
+let insertUser=`insert into user (account,password,name,signature,breif) values ('admin','812bf295db843ad39280f48332f3a416','shuyuxuan_blog','Against the current','有志不在年高 无志空长百岁');`;
 
 let Query = function(db,sql,feedback=''){
     return new Promise((resolve, reject) => {

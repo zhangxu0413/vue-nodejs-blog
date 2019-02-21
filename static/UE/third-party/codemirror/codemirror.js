@@ -2751,7 +2751,7 @@ var CodeMirror = (function() {
     (function() {
         // Number keys
         for (var i = 0; i < 10; i++) keyNames[i + 48] = String(i);
-        // Alphabetic keys
+        // shuyuxuan_blogic keys
         for (var i = 65; i <= 90; i++) keyNames[i] = String.fromCharCode(i);
         // Function keys
         for (var i = 1; i <= 12; i++) keyNames[i + 111] = keyNames[i + 63235] = "F" + i;

@@ -20,8 +20,8 @@ let usersRouter = require('./routes/users');
 
 // 实例化
 let app = express();
-app.listen(8081);
-console.log('now is listening port 8081……')
+app.listen(8088);
+console.log('now is listening port 8088……')
 
 //使用所需中间件
 app.use(cors());
