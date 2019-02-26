@@ -48,13 +48,12 @@
 				skills:[
 					//了解 16%，熟悉45%，熟练掌握70%，精通85%
 					{name:'Html+Css',degree:'70%',color:'orange'},
-					{name:'Javascript',degree:'70%',color:'green'},
-					{name:'Jquery/Bootstrap',degree:'45%',color:'yellow'},
-					{name:'Vue全家桶',degree:'70%',color:'#cf4647'},
+					{name:'Javascript',degree:'80%',color:'green'},
+					{name:'Jquery/backbone',degree:'45%',color:'yellow'},
+					{name:'Vuejs',degree:'45%',color:'#cf4647'},
 					{name:'Node.js',degree:'45%',color:'#524656'},
 					{name:'MySql',degree:'20%',color:'#595b5a'},
-					{name:'Cordova',degree:'20%',color:'red'},
-					{name:'Git',degree:'20%',color:'blue'},
+					{name:'Git',degree:'20%',color:'blue'}
 				],
 				showDegree:false,//展示熟练度条
 				isActive:false,//激活发廊滚动条效果
