@@ -4,7 +4,15 @@ const router=require('express').Router();
 let db=require('../db.js');
 
 //前台接口
-
+router.get('/allCategory',(req,res)=>{
+    let sql=db.getAllCategory();
+    console.log('前端获取栏目');
+    db.Query(sql).then(data=>{
+        res.send({"code":"200","data":data});
+    },err=>{
+        res.send({"code":"400","err":"服务器开小差了"});
+    })
+})
 //获取所有文章的接口
 router.get('/allArticle',(req,res)=>{
     let sql=db.allArticleFront();

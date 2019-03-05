@@ -5,7 +5,7 @@ let mysql=require('mysql');
 let pool=mysql.createPool({
     host:'localhost',
     user:'root',
-    password:'',
+    password:process.env.NODE_ENV === "production"?'111111':'',
     database:'shuyuxuan_blog',
     port:3306,
     connectionLimit:50,//允许连接数
@@ -95,7 +95,18 @@ let Query=( sql , ...params )=>{
     }
 
 //前端sql语句
-
+    //获取栏目信息
+    let getAllCategory=function () {
+        let sql=`
+        select
+            category.id,category.name
+        from
+            category
+        order by
+            category.id
+        `;
+        return sql;
+    }
     //获取所有文章（完成）
     let allArticleFront=function(){
         let sql=`
@@ -375,6 +386,7 @@ let Query=( sql , ...params )=>{
     getInfo,
     login,
 
+    getAllCategory,
     allArticleFront,
     oneArticleFront,
     prePsgFront,

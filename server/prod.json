@@ -1,0 +1,9 @@
+{
+    "name"        : "shuyuxuanblog_server", 
+    "script"      : "./bin/www", 
+    "cwd"         : "./", 
+    "env": {
+        "NODE_ENV": "production"  
+    }
+}
+  
