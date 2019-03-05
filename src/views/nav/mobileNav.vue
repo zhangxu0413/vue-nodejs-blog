@@ -2,8 +2,7 @@
 	<div class="mobileNav">
 		<img src="@/assets/img/myImg.jpg"/>
 		<p>“ {{myInfo.signature}} ”</p>
-		<a href="https://github.com/60late" target="_blank"><span class="iconfont icon-github"></span></a>
-		<a href="http://www.cnblogs.com/60late/" target="_blank"><span class="iconfont icon-bokeyuan "></span></a>
+		<a href="https://github.com/zhangxu0413" target="_blank"><span class="iconfont icon-github"></span></a>
 		<nav-search></nav-search>
 		
 		<div class="triger" :class="[scrollOver==true?'scrollOver':'']">

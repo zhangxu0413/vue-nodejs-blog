@@ -11,15 +11,9 @@
 				<router-link v-for="(one,index) in nav" :key="index" :to="one.url">
 					<li @click="changeSelect(index)" :class="{active:index==selectItem}"><span class="iconfont category" :class="one.icon"></span>{{one.name}}</li>
 				</router-link>
-
-				<!-- <router-link to="/index"><li>首页</li></router-link>
-				<router-link to="/tech"><li>技术</li></router-link>
-				<router-link to="/music"><li>音乐</li></router-link>
-				<router-link to="/sense"><li>感悟</li></router-link>
-				<router-link to="/file"><li>归档</li></router-link>
-				<router-link to="/aboutMe"><li>关于我</li></router-link>
-				<router-link to="/myApp"><li>我的应用</li></router-link> -->
-				<li class="contact"><a href="https://github.com/60late" target="_blank"><span class="iconfont icon-github"></span></a><a href="http://www.cnblogs.com/60late/" target="_blank"><span class="iconfont icon-bokeyuan"></span></a></li>
+				<li class="contact">
+					<a href="https://github.com/zhangxu0413" target="_blank"><span class="iconfont icon-github"></span></a>
+				</li>
 			</ul>
 			<nav-search></nav-search>
 		</div>
@@ -65,7 +59,9 @@
 	}
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
+	$bgColor:#3650c5;
+	$activeColor:#409eff;
 	.sideBar{
 		display: flex;
 		flex-direction: column;
@@ -75,13 +71,13 @@
 		top:0;
 		bottom:0;
 		text-align: center;
-		background:#353d47;
+		background:linear-gradient(transparentize($bgColor, 0.1), transparentize($bgColor,0.6));
 		margin:auto 0px;
 		padding: 10px 0 ;
 		box-sizing: border-box;
 		overflow: auto;
 		.wrap{
-			margin:auto 0;
+			margin-top:70px;
 			.myImg{
 			img{
 				width: 150px;
@@ -97,29 +93,6 @@
 				margin:10px 0;
 				color: white;
 				font-size: 18px;
-			}
-		}
-		.search{
-			width: 200px;
-			height: 25px;
-			margin: 20px auto;
-			background: white;
-			text-align: left;
-			border-radius: 10px;
-			input{
-				width: 150px;
-				margin-left: 10px;
-				border: none;
-				outline: none;
-			}
-			.iconfont{
-				margin-left: 13px;
-				vertical-align: middle;
-				font-size: 18px;
-				cursor: pointer;
-			}
-			a{
-				text-decoration: none;
 			}
 		}
 		ul{
@@ -150,31 +123,20 @@
 				position: absolute;
 				z-index: -1;
 				left: 0;
-				transition: all 0.3s linear;
+				transition: all 0.12s linear;
 			}
 			a:hover li::after{
 				width: 100%;
-				background:#409eff;
+				background:$activeColor;
 			}
 			.active{
-				background:#409eff;
+				background:$activeColor;
 			}
 			.contact{
 				margin-top: 30px;
 			}
 			.contact span{
 				background: transparent;
-			}
-			// github和博客园图标渐变
-			.contact span:hover{
-				// 文字颜色设置为透明
-				color: transparent;
-				//利用linear-gradient实现背景的静态渐变
-				background-image:linear-gradient(to right, #3498db 25%, #f47920 50%, #3498db 75%, #f47920 100%);  
-				//基本新版本浏览器都兼容background-clip:text,表示只在文字内容处显示背景
-				-webkit-background-clip:text;
-				background-size: 300%;
-				animation:flash 1s infinite linear;
 			}
 		}
 		}
