@@ -9,7 +9,7 @@
 			</div>
 			<ul>
 				<router-link v-for="(one,index) in nav" :key="index" :to="one.url">
-					<li @click="changeSelect(index)" :class="{active:index==selectItem}"><span class="iconfont category" :class="one.icon"></span>{{one.name}}</li>
+					<li @click="changeSelect(index)" :class="{active:index==selectItem}"><span class="category" :class="one.icon"></span>{{one.name}}</li>
 				</router-link>
 				<li class="contact">
 					<a href="https://github.com/zhangxu0413" target="_blank"><span class="iconfont icon-github"></span></a>
@@ -34,13 +34,12 @@
 				isActive:false,
 				selectItem:0,
 				nav:[
-					{name:'首页',url:'/index',icon:'icon-index'},
-					{name:'技术',url:'/tech',icon:'icon-h5'},
-					{name:'音乐',url:'/music',icon:'icon-yinyuered'},
-					{name:'感悟',url:'/sense',icon:'icon-dushu'},
-					{name:'归档',url:'/file',icon:'icon-shijianzhou'},
-					{name:'关于',url:'/aboutMe',icon:'icon-my'},
-					{name:'应用',url:'/myApp',icon:'icon-yingyong'},
+					{name:'首页',url:'/index',icon:'iconfont icon-index'},
+					{name:'技术',url:'/articleList/1',icon:'syx_iconfont icon-web'},
+					{name:'游记',url:'/articleList/2',icon:'syx_iconfont icon-youji'},
+					{name:'感悟',url:'/articleList/3',icon:'syx_iconfont icon-zpq_dzt'},
+					{name:'关于',url:'/aboutMe',icon:'iconfont icon-my'},
+					{name:'应用',url:'/myApp',icon:'iconfont icon-yingyong'},
 				]
 			}
 		},

@@ -1,4 +1,18 @@
-
+function getCategoryById(id) {
+    let cate;
+    if(window.categoryArr&&window.categoryArr.length){
+        window.categoryArr.forEach(c=>{
+            if(id == c.id){
+                cate = c
+            }
+        })
+        return cate
+    }else{
+        return{
+            name:'未知'
+        }
+    }
+}
 function getCurrentDate(){
     let date=new Date();
     let year=date.getFullYear();
@@ -41,4 +55,5 @@ function throttle(method,mustRun,delay){
 export default{
     getCurrentDate,
     throttle,
+    getCategoryById
 }

@@ -99,7 +99,7 @@ let Query=( sql , ...params )=>{
     let getAllCategory=function () {
         let sql=`
         select
-            category.id,category.name
+            category.id,category.name,category.describe
         from
             category
         order by

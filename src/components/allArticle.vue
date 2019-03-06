@@ -1,7 +1,7 @@
 <template>
 	<div class="allArticle">
 		<div class="head">
-			<p>{{type.title}}</p>
+			<p>{{type.name}}</p>
 			<p>{{type.describe}}</p>
 		</div>
 		
@@ -28,7 +28,7 @@
 					
 					<div class="bottomType">
 						<span class="iconfont icon-wenjianjia"></span>
-						<span>{{passage.category}}</span>
+						<span>{{findCate(passage.category)}}</span>
 					</div>
 					
 					<div class="more">
@@ -63,6 +63,10 @@
 			window.removeEventListener('scroll',this.lazyLoad);
 		},
 		methods:{
+			findCate(id){
+				console.log(util.getCategoryById(id))
+				return util.getCategoryById(id).name
+			},
 			findTag(tag){
 				this.$router.push({name:'searchTag',params:{tagStr:tag}});
 			},
@@ -94,7 +98,9 @@
 	}
 </script>
 
-<style scoped lang="less"> 
+<style scoped lang="scss"> 
+$mainColor:#038fff;
+$hoverColor:darken($mainColor,0.8);
 .allArticle{
 	padding: 20px;
 	/*padding: 20px 20px 15px;
@@ -103,10 +109,11 @@
 		height: 100px;
 		padding:5px 20px;
 		background: white;
-		border-left: 10px solid #353d47;
+		border-left: 10px solid $mainColor;
 		p:first-child{
 			margin-top: 8px;
-			font-size: 30px;
+			font-size: 35px;
+			color: $mainColor;
 			font-weight: bold;
 		}
 		p:last-child{
@@ -130,8 +137,12 @@
 				font-size: 1.3rem;
 				a{
 					text-decoration: none;
-					color: black;
+					color: adjust-color($mainColor,  $hue: 20, $saturation: 50%, $lightness: 10%);
 					transition: all 0.5s;
+					font: {
+						size: 25px;
+						weight: bold;
+					}
 				}
 			}
 			.time{
@@ -145,15 +156,15 @@
 		}
 		.title:hover a{
 			margin-left: 15px;
-			color: orange;
+			color: $hoverColor;
 		}
 		.content{
 			margin:20px 0 0;
 			p{
-				margin-bottom: 30px;
+				margin-bottom: 10px;
 			}
 			a{
-				color: orange;
+				color: $hoverColor;
 				text-decoration: none;
 			}
 			hr{

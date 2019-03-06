@@ -145,7 +145,12 @@ export default {
 
 
 //前台接口
-	
+	//获取所有文章栏目
+	allCategory(){
+		let params={
+		};
+		return fetchGet('/frontend/allCategory',params)
+	},
 	//所有文章的接口
 	allArticleFront(){
 		let params={
