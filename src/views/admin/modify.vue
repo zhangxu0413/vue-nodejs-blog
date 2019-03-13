@@ -41,12 +41,12 @@
 
             <div class="summary">
                 <p>文章简介：</p>
-                <ueditor  ref="ue1" :id="ue1" :config="config1" :content="passage.summary" v-model="passage.summary"></ueditor>
+                <editor  ref="ue1" :id="ue1" :config="config1" :content="passage.summary" v-model="passage.summary"></editor>
             </div>
 
             <div class="passageContext">
                 <p>文章内容：</p>
-                <ueditor ref="ue2" :id="ue2" :config="config2" :content="passage.content" v-model="passage.content"></ueditor>
+                <editor ref="ue2" :id="ue2" :config="config2" :content="passage.content" v-model="passage.content"></editor>
             </div>
             <p class="save"><button class="saveBtn" @click="savePassage">保存修改</button></p>
         </div>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-    import ueditor from './components/ueditor'
+    import editor from './components/editor'
     import api from '@/fetch/api'
     import util from '@/util/util'
 
@@ -62,7 +62,7 @@
         name:'modify',
         props:['id','type'],
         components:{
-            ueditor,
+            editor,
         },
         data(){
             return{
@@ -103,9 +103,6 @@
                         case '200':
                         console.log(res.data[0]);
                         this.passage=res.data[0];
-                        //再拿到数据之后再进行ueditor的初始化操作，否则会出错
-                        this.$refs.ue1.initEditor();
-                        this.$refs.ue2.initEditor();
                         break;
                         case '400':
                         console.log('请求数据错误！');
@@ -116,9 +113,15 @@
                 })
             },
             newArticle(){
-                console.log(this.$refs.ue1);
-                this.$refs.ue1.initEditor();
-                this.$refs.ue2.initEditor();
+                this.passage = {
+                    title:'',
+                    time:util.getCurrentDate(),//从util文件夹引入的公共方法获取当前时间
+                    category:this.type,
+                    tags:'',
+                    state:'发表',
+                    summary:'',
+                    content:''
+                }
             },
             savePassage(){
                 let r=confirm('确定更改吗？');
