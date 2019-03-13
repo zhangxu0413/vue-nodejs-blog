@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<div class="content" ref="content">
-				<mavon-editor v-html="passage.content" :subfield="false" defaultOpen="preview" :toolbarsFlag="false" :boxShadow="false"  />			
+				<mavon-editor :value="passage.content" :subfield="false" defaultOpen="preview" :toolbarsFlag="false" :boxShadow="false"  />			
 				<hr />
 				<div class="bottom">
 					<span class="iconfont icon-tag1"></span>
