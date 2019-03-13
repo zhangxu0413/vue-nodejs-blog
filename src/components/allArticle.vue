@@ -21,7 +21,7 @@
 				<div class="bottom">
 					<div class="bottomTag">
 						<span class="iconfont icon-tag1"></span>
-						<div class="tag" v-for="tag in passage.tags" v-if="tag" @click="findTag(tag)">
+						<div class="tag" v-for="(tag) in passage.tags" :key="tag" v-if="tag" @click="findTag(tag)">
 							<span>{{tag}}</span>
 						</div>
 					</div>
