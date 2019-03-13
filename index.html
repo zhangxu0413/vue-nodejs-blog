@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>書語轩</title>
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_658158_r2xcplbp1gm.css"/>
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_658158_r2xcplbp1gm.css" />
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1073082_dtbcfxhkysi.css">
     <link type="favicon" rel="shortcut icon" href="./static/img/favicon.ico" />
     <link rel="stylesheet" href="./static/css/loading.css">
-  </head>
-  <body>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?13ab3965d7e2cc1fce61bcbaad697fc8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+<body>
     <div id="loading">
-      <img src="./static/img/myImg.jpg" alt="書語轩">
-      <div class="welcome">
-        蜗牛服务器努力加载中
-      </div>
+        <img src="./static/img/myImg.jpg" alt="書語轩">
+        <div class="welcome">
+            蜗牛服务器努力加载中
+        </div>
     </div>
     <script>
-      let welcome=document.getElementsByClassName('welcome')[0];
-      console.log(welcome)
-      let words=welcome.innerText.split('');
-      console.log(words);
-      let len=words.length;
-      for(var i=0;i<len;i++){
-        if(i==0){
-          welcome.innerHTML='';
+        let welcome = document.getElementsByClassName('welcome')[0];
+        console.log(welcome)
+        let words = welcome.innerText.split('');
+        console.log(words);
+        let len = words.length;
+        for (var i = 0; i < len; i++) {
+            if (i == 0) {
+                welcome.innerHTML = '';
+            }
+            welcome.innerHTML += '<div class="single">' + words[i] + '</div>';
         }
-        welcome.innerHTML+='<div class="single">'+words[i]+'</div>';
-      }
     </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
-</html>
+</body>
 
+</html>
