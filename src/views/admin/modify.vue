@@ -21,9 +21,9 @@
                 <span>文章类型：</span>
                 <select id="typeSelect" v-model="passage.category">
                     <option disabled value="">请选择</option>
-                    <option value="技术文章">技术文章</option>
-                    <option value="音乐文章">音乐文章</option>
-                    <option value="感悟文章">感悟文章</option>
+                    <option value="1">学无止境</option>
+                    <option value="2">慢生活</option>
+                    <option value="3">时光如梭</option>
                 </select>
                 <span>文章标签：</span>
                 <input type="text" v-model="passage.tags">

@@ -2,11 +2,7 @@
     <div class="nav">
         <h1>后台管理系统</h1>
         <ul>
-            <router-link to="/admin/techAdmin"><li>技术文章</li></router-link>
-            <router-link to="/admin/musicAdmin"><li>音乐文章</li></router-link>
-            <router-link to="/admin/senseAdmin"><li>感悟文章</li></router-link>
-            <router-link to="/admin/commentAdmin"><li>评论管理</li></router-link>
-            <router-link to="/admin/meAdmin"><li>我的信息</li></router-link>
+            <router-link v-for="(one,index) in routers" :key="index" :to="one.to" ><li @click="changeSelect(index)" :class="{active:index==selectItem}">{{one.name}}</li></router-link>
         </ul>
         <p class="logout" @click="logout">退出登录</p>
     </div>
@@ -19,10 +15,27 @@ import store from '@/store/index'
         name:'navAdmin',
         data(){
             return{
-                
+                selectItem:0,
+                routers:[
+                    { name:"学无止境",to:"/admin/articleList/1" },
+                    { name:"慢生活",to:"/admin/articleList/2" },
+                    { name:"岁月如梭",to:"/admin/articleList/3" },
+                    { name:"评论管理",to:"/admin/commentAdmin" },
+                    { name:"我的信息",to:"/admin/meAdmin" },
+                ]
             }
         },
+        mounted() {
+            this.routers.forEach((r,i) => {
+                if(location.hash.replace('#','') == r.to){
+                    this.selectItem = i;
+                }
+            });
+        },
         methods:{
+            changeSelect(index){
+                this.selectItem = index
+            },
             logout(){
                 let r=confirm('确定要退出吗？');
                 if(r){
@@ -36,7 +49,8 @@ import store from '@/store/index'
     }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
+    $activeColor:#038fff;
 	.nav{
         a{
             color:white;
@@ -59,9 +73,12 @@ import store from '@/store/index'
                 height: 60px;
                 line-height: 60px;
                 font-size: 20px;
-            }
-            li:hover{
-                background:#409eff;
+                &.active{
+                    background: $activeColor;
+                }
+                &:hover{
+                    background:$activeColor;
+                }
             }
         }
         .logout{

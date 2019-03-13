@@ -1,36 +1,40 @@
 <template>
-    <all-article :passages="passages"  :type="type"></all-article>
+    <all-article :passages="passages"  :categroyId="category.id" :name="category.name"></all-article>
 </template>
 
 <script>
 import allArticle from './components/allArticle'
 import api from '@/fetch/api'
+import util from '@/util/util';
 export default {
     name:'senseAdmin',
     components:{
         allArticle,
     },
+    props:['id'],
     data(){
         return{
-            type:'感悟文章',
-            passages:[
-                // {title:'测试文章',time:'2018-8-1',id:1,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:2,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:3,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:4,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:5,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:6,type:'tech',tags:['javascript','html'],state:'true'},
-                // {title:'测试文章',time:'2018-8-1',id:7,type:'tech',tags:['javascript','html'],state:'true'},
-            ]
+            category:{
+                id:1,
+                name:'学无止境'
+            },
+            passages:[]
         }
     },
     created(){
+        this.category = util.getCategoryById(this.id);
         this.getSenseArticle();
+    },
+    watch: {
+        "id"(id){
+            this.category = util.getCategoryById(this.id);
+            this.getSenseArticle();
+        }
     },
     methods:{
         getSenseArticle(){
             let category=encodeURIComponent(this.type)
-            api.categoryArticleBack(category).then(res=>{
+            api.categoryArticleBack(this.category.id).then(res=>{
                 switch(res.code){
                     case '200':
                     // console.log(res.data);

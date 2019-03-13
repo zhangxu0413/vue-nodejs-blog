@@ -1,6 +1,6 @@
 <template>
     <div class="allArticle">
-        <div class="head">{{type}}</div>
+        <div class="head">{{name}}</div>
         <div class="content">
             <button class="new" @click="goNew">
                 写新文章
@@ -18,7 +18,7 @@
                     <tr  v-for="(passage,index) in passages" :key="index">
                         <td>{{passage.title}}</td>
                         <td>{{passage.time}}</td>
-                        <td><span class="tag" v-for="tag in passage.tags">#{{tag}} </span></td>
+                        <td><span class="tag" v-for="(tag,index) in passage.tags" :key="index">#{{tag}} </span></td>
                         <td>
                             <button class="publish" v-show="passage.state=='草稿'"  @click="toggleState(passage)" >发布</button>
                             <button class="save" v-show="passage.state=='发表'" @click="toggleState(passage)">设为草稿</button>
@@ -36,7 +36,7 @@
 import api from '@/fetch/api'
 export default {
     name:'allArticle',
-    props:['type','passages'],
+    props:['categroyId','name','passages'],
     data(){
         return{
             publish:true,
@@ -70,7 +70,7 @@ export default {
             this.$router.push({name:'modify',params:{id:passage.id}})
         },
         goNew(){
-            this.$router.push({name:'newArticle',params:{type:this.type}})
+            this.$router.push({name:'newArticle',params:{type:this.categroyId}})
         },
         delArticle(passage,index){
             let r=confirm('确认删除该篇文章吗？');
