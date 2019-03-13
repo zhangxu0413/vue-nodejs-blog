@@ -16,6 +16,7 @@
 				</li>
 			</ul>
 			<nav-search></nav-search>
+			<div class="foot">粤ICP备18154929号</div>
 		</div>
 	</div>
 </template>
@@ -155,5 +156,11 @@
 		.sideBar{
 			display: none;
 		}
+	}
+	.foot{
+		position: fixed;
+		bottom: 20px;
+		width: 350px;
+		text-align: center
 	}
 </style>
