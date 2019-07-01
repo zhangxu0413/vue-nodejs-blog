@@ -3,20 +3,18 @@ var cheerio = require('cheerio');
 var moment = require('moment');
 var request = require('request')
 var date = moment(new Date()).add(-1, 'days').format('YYYYMMDD');
-export default {
-    getDayNews(){
-        date = moment(new Date()).add(-1, 'days').format('YYYYMMDD');
-        http.get('http://caibaojian.com/fe-daily-' + date + '.html', function (req, res) {
-          var result = '';
-          req.on('data', function (data) {
-            result += data;
-          });
-          req.on('end', function () {
-            //console.info(result);
-            parseHtml(result);
-          });
-        });
-    }
+var getDayNews = () => {
+  date = moment(new Date()).add(-1, 'days').format('YYYYMMDD');
+  http.get('http://caibaojian.com/fe-daily-' + date + '.html', function (req, res) {
+    var result = '';
+    req.on('data', function (data) {
+      result += data;
+    });
+    req.on('end', function () {
+      //console.info(result);
+      parseHtml(result);
+    });
+  });
 }
 
 //解析html 获取内容
@@ -60,3 +58,4 @@ function parseHtml(result) {
       }
     });
 }
+getDayNews()
