@@ -1,18 +1,40 @@
 <template>
-    <div class="myApp">
-        <span class="iconfont icon-shigongzhong"></span>
-        <h1>施工中...</h1> 
+    <div class="">
+        <div>serverLess:{{text}}</div>
+        <button @click="getSeverLess">serverLess</button>
     </div>
 </template>
 
 <script>
+const FCClient = require('@alicloud/fc2');
+import moment from 'moment';
 export default {
     name:'myApp',
     data(){
         return{
-
+            text:''
         }
-    }
+    },
+    mounted() {
+        this.client = new FCClient('1143066480204499', {
+            accessKeyID: 'LTAIm0RgBzQVoNyL',
+            accessKeySecret: 'F8KHEbKEm5q0EOO7b2IecizQfhEVsh',
+            region: 'cn-shanghai',
+            headers: {
+                'date':moment().format('ddd,D MMM YYYY HH:mm:ss').trim() + ' GMT',
+                'x-fc-invocation-type': 'Async'
+            }
+        });
+        
+    },
+    methods: {
+        getSeverLess(){
+            this.test()
+        },
+        async test () {
+            this.text = await this.client.invokeFunction('test_serverless','hello', 'event');
+        }
+    },
 }
 </script>
 
