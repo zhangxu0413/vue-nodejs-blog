@@ -35,7 +35,7 @@ function parseHtml(result) {
     });
     var content = '# '+ date +"前端开发学习日报\n";
     itemList.forEach(e => {
-        content = content + '> ' + e.title + ' <font color="info">[跳转>>](' + e.linkUrl + ')</font>\n';
+        content = content + '> ' + e.title + ' <font color="info">[>>](' + e.linkUrl + ')</font>\n';
     });
     console.log(content);
     request({
