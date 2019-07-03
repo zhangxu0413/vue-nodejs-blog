@@ -26,10 +26,11 @@ function parseHtml(result) {
         var cap = $(this);
         //console.log(cap.find('h3').text());
         var item = {
-            title: cap.find('.fed-title').text(),
+            title: cap.find('.fed-title').text().replace(/^\#+/g,''),
             linkUrl: cap.find('.fed-title a').attr('href')
         }
         if(item.title){
+
             itemList.push(item);
         }
     });
